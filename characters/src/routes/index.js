@@ -3,8 +3,8 @@ const controllers = require("../controllers")
 
 const router = Router();
 
-router.get("/Character/:id", controllers.getCharacters)
+router.get("/Characters", controllers.getCharacters)
 
-router.post("/Character/:id", controllers.createCharacter)
+router.post("/Characters", controllers.createCharacter)
 
 module.exports = router;

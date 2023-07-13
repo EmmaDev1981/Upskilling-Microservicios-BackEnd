@@ -1,7 +1,11 @@
-const Films = require("../data/films.json")
+const { default: axios } = require("axios");
 
 module.exports = {
     list: async () => {
-        return Films
+        const results = await axios.get("http://database:8004/Films")
+        return results.data;
+    },
+    create: async () => {
+        throw Error("Hay un error en la BDD al momento de crear el personaje")
     }
 }

@@ -1,7 +1,11 @@
-const Planets = require("../data/planets.json")
+const { default: axios } = require("axios");
 
 module.exports = {
     list: async () => {
-        return Planets
+        const results = await axios.get("http://database:8004/Planets")
+        return results.data;
+    },
+    create: async () => {
+        throw Error("Hay un error en la BDD al momento de crear el personaje")
     }
 }
