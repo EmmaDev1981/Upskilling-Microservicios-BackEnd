@@ -5,6 +5,6 @@ const router = Router();
 
 router.get("/Characters", controllers.getCharacters)
 
-router.post("/Characters", controllers.createCharacter)
+router.post("/Character/:id", controllers.createCharacter)
 
 module.exports = router;
