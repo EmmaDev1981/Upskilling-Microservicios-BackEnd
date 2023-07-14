@@ -10,12 +10,27 @@ app.use("/characters", createProxyMiddleware({
 	changeOrigin:true
 }));
 
+app.use("/character/**", createProxyMiddleware({
+	target:"http://characters:8001",
+	changeOrigin:true
+}));
+
 app.use("/films", createProxyMiddleware({
 	target:"http://films:8002",
 	changeOrigin:true
 }));
 
+app.use("/film/**", createProxyMiddleware({
+	target:"http://films:8002",
+	changeOrigin:true
+}));
+
 app.use("/planets", createProxyMiddleware({
+	target:"http://planets:8003",
+	changeOrigin:true
+}));
+
+app.use("/planet/**", createProxyMiddleware({
 	target:"http://planets:8003",
 	changeOrigin:true
 }));
