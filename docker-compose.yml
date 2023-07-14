@@ -41,4 +41,4 @@ services:
     restart: always
     build: ./client
     ports:
-      - "8005:8005"
+      - "5173:5173"
