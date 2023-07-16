@@ -24,7 +24,7 @@ Topic: Create a Microservice´s BackEnd deployed with Docker Compose (Google Clo
 ## Star Wars Films:
 
 <p>
-  <img height="400" src="./client/src/assets/starwar2s.jpg" />
+  <img height="400" src="./client/src/assets/starwars2.jpg" />
 </p>
 
 ## Star Wars Planets:
