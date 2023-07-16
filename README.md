@@ -1,10 +1,10 @@
 # Upskilling-Microservicios-BackEnd >> STAR WARS <<
 
 <p align="right">
-  <img height="200" src="./client/src/assets/logo.jpg" />
+  <img height="300" src="./client/src/assets/logo.jpg" />
 </p>
 
-Topic: Create a Microservice´s BackEnd deployed with Docker Compose (Google Cloud) 
+## Topic: Create a Microservice´s BackEnd deployed with Docker Compose (Google Cloud) 
 
 #### Technologies:
 
