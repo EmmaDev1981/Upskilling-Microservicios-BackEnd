@@ -13,19 +13,22 @@ function TableRenderChar({data}) {
       <Table sx={{ minWidth: 1400, maxWidth: 1400, backgroundColor: '#242424' }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow >
-            <TableCell sx={{color: 'white'}}>Name</TableCell>
-            <TableCell align="right" sx={{color: 'white'}}>Height</TableCell>
-            <TableCell align="right" sx={{color: 'white'}}>Gender</TableCell>
-            <TableCell align="right" sx={{color: 'white'}}>Mass</TableCell>
-            <TableCell align="right" sx={{color: 'white'}}>Eye Color</TableCell>
-            <TableCell align="right" sx={{color: 'white'}}>Hair Color</TableCell>
-            <TableCell align="right" sx={{color: 'white'}}>Skin Color</TableCell>
+            <TableCell sx={{color: 'red'}}>Name</TableCell>
+            <TableCell align="right" sx={{color: 'red'}}>Height</TableCell>
+            <TableCell align="right" sx={{color: 'red'}}>Gender</TableCell>
+            <TableCell align="right" sx={{color: 'red'}}>Mass</TableCell>
+            <TableCell align="right" sx={{color: 'red'}}>Eye Color</TableCell>
+            <TableCell align="right" sx={{color: 'red'}}>Hair Color</TableCell>
+            <TableCell align="right" sx={{color: 'red'}}>Skin Color</TableCell>
+            <TableCell align="right" sx={{color: 'red'}}>Films</TableCell>
+            <TableCell align="right" sx={{color: 'red'}}>Birth Year</TableCell>
+            <TableCell align="right" sx={{color: 'red'}}>Homeworld</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {data.map((char) => (
             <TableRow
-              key={char?.name}
+              key={char?._id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row" sx={{color: 'white'}}>
@@ -37,6 +40,9 @@ function TableRenderChar({data}) {
               <TableCell align="right" sx={{color: 'white'}}>{char?.eye_color.toUpperCase()}</TableCell>
               <TableCell align="right" sx={{color: 'white'}}>{char?.hair_color.toUpperCase()}</TableCell>
               <TableCell align="right" sx={{color: 'white'}}>{char?.skin_color.toUpperCase()}</TableCell>
+              <TableCell align="right" sx={{color: 'white'}}>{char?.films.map((film) => `${film.title} *` )}</TableCell>
+              <TableCell align="right" sx={{color: 'white'}}>{char?.birth_year !== 'unknown' ? char?.birth_year : "-"}</TableCell>
+              <TableCell align="right" sx={{color: 'white'}}>{char?.homeworld?.name ? char?.homeworld?.name.toUpperCase() : char?.homeworld}</TableCell>
             </TableRow>
           ))}
         </TableBody>

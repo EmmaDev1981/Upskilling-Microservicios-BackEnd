@@ -15,4 +15,11 @@ router.get("/:model/:id", async (req, res) => {
     res.status(200).json(response)
 })
 
+router.post("/:model", async (req, res) => {
+    const { model } = req.params
+    const { character } = req.body
+    const response = await store[model].insert(character)
+    res.status(200).json(response)
+})
+
 module.exports = router;

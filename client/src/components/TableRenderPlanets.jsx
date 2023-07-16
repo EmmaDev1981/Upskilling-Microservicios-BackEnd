@@ -13,19 +13,22 @@ function TableRenderChar({data}) {
       <Table sx={{ minWidth: 1400, maxWidth: 1400, backgroundColor: '#242424' }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow >
-            <TableCell sx={{color: 'white'}}>Name</TableCell>
-            <TableCell align="right" sx={{color: 'white'}}>Diameter</TableCell>
-            <TableCell align="right" sx={{color: 'white'}}>Gravity</TableCell>
-            <TableCell align="right" sx={{color: 'white'}}>Orbital Period</TableCell>
-            <TableCell align="right" sx={{color: 'white'}}>Rotation Period</TableCell>
-            <TableCell align="right" sx={{color: 'white'}}>Climate</TableCell>
-            <TableCell align="right" sx={{color: 'white'}}>Terraine</TableCell>
+            <TableCell sx={{color: 'red'}}>Name</TableCell>
+            <TableCell align="right" sx={{color: 'red'}}>Diameter</TableCell>
+            <TableCell align="right" sx={{color: 'red'}}>Gravity</TableCell>
+            <TableCell align="right" sx={{color: 'red'}}>Orbital Period</TableCell>
+            <TableCell align="right" sx={{color: 'red'}}>Rotation Period</TableCell>
+            <TableCell align="right" sx={{color: 'red'}}>Climate</TableCell>
+            <TableCell align="right" sx={{color: 'red'}}>Terraine</TableCell>
+            <TableCell align="right" sx={{color: 'red'}}>Films</TableCell>
+            <TableCell align="right" sx={{color: 'red'}}>Residents</TableCell>
+            <TableCell align="right" sx={{color: 'red'}}>Surface Water</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {data.map((planet)=> (
             <TableRow
-              key={planet?.title}
+              key={planet?._id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row" sx={{color: 'white'}}>
@@ -37,6 +40,9 @@ function TableRenderChar({data}) {
               <TableCell align="right" sx={{color: 'white'}}>{planet?.rotation_period !== 'unknown' ? planet?.rotation_period : "-"}</TableCell>
               <TableCell align="right" sx={{color: 'white'}}>{planet?.climate !== 'unknown' ? planet?.climate.toUpperCase() : "-"}</TableCell>
               <TableCell align="right" sx={{color: 'white'}}>{planet?.terrain.toUpperCase()}</TableCell>
+              <TableCell align="right" sx={{color: 'white'}}>{planet?.films.map((film) => `${film.title} - ` )}</TableCell>
+              <TableCell align="right" sx={{color: 'white'}}>{planet?.res_idents.map((res) => `${res.name} * `)}</TableCell>
+              <TableCell align="right" sx={{color: 'white'}}>{planet?.surface_water !== 'unknown' ? planet?.surface_water : "-"}</TableCell>
             </TableRow>
           ))}
         </TableBody>

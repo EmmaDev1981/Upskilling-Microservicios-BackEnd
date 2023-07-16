@@ -7,6 +7,10 @@ import Box from '@mui/material/Box';
 import TableRenderChar from './TableRenderChar'
 import TableRenderFilms from './TableRenderFilms'
 import TableRenderPlanets from './TableRenderPlanets'
+import FormNewChar from './FormNewChar/FormNewChar';
+import FormNewFilm from './FormNewFilm/FormNewFilm';
+import FormNewPlanet from './FormNewPlanet/FormNewPlanet'
+import './SideBar.css'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -21,7 +25,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box>
-          <Typography >{children}</Typography>
+          <Typography component={'div'}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -50,7 +54,7 @@ export default function VerticalTabs({char, films, planets}) {
 
   return (
     <Box
-      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 224 }}
+      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 400 }}
     >
       <Tabs
         orientation="vertical"
@@ -58,13 +62,12 @@ export default function VerticalTabs({char, films, planets}) {
         value={value}
         onChange={handleChange}
         aria-label="Vertical tabs example"
-        sx={{ borderRight: 1, borderColor: 'divider' , backgroundColor: '#242424'}}
+        sx={{ borderRight: 1, borderColor: 'divider' , backgroundColor: '#242424', width:170}}
       >
         <Tab label="Characters" {...a11yProps(0)} sx={{color: 'white'}} />
         <Tab label="Films" {...a11yProps(1)} sx={{color: 'white'}}/>
         <Tab label="Planets" {...a11yProps(2)} sx={{color: 'white'}}/>
-        <Tab label="Otros..." {...a11yProps(3)} sx={{color: 'white'}}/>
-
+        <Tab label="New" {...a11yProps(3)} sx={{color: 'white'}}/>
       </Tabs>
 
       <TabPanel value={value} index={0}>
@@ -77,7 +80,11 @@ export default function VerticalTabs({char, films, planets}) {
         <TableRenderPlanets data={planets}/>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+      <div className='form-container'>
+        <FormNewChar />
+        <FormNewFilm />
+        <FormNewPlanet />
+      </div>
       </TabPanel>
     </Box>
   );

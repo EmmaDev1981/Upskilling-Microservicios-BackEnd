@@ -5,8 +5,9 @@ module.exports = {
         const results = await axios.get("http://database:8004/Character")
         return results.data;
     },
-    create: async () => {
-        throw Error("Hay un error en la BDD al momento de crear el personaje")
+    create: async (character) => {
+        const result = await axios.post(`http://database:8004/Character`, character)
+        return result.data;
     },
     get: async (id) => {
         const result = await axios.get(`http://database:8004/Character/${id}`)

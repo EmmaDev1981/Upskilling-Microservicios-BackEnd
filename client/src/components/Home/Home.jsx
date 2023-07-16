@@ -35,7 +35,11 @@ function Home() {
       fetch()
     },[])
     
-  if(!characters && !films && !planets) return null;
+    if(!characters && !films && !planets) return null;
+    
+    console.log(characters)
+    console.log(films)
+    console.log(planets)
 
   return (
       <div>
